@@ -8,22 +8,61 @@ public class Projetomercadov2 {
 	static String[] nome = new String[1000];
 	static double [] preco = new double[1000];
 	static int [] cod = new int[1000];
+	static String [] categoria = new String[1000];
 	
 	public static void cadastrarProd(int codigo) {
 		Scanner sc = new Scanner(System.in);
-	
+		
+		int codi;
+		String name, category;
+		double precin;
 		
 		switch(codigo) {
+		
+			case 1:{
+				for(int i = 0; i < cod.length; i++) {
+                	if(categoria[i].equalsIgnoreCase("limpeza") || categoria[i].equalsIgnoreCase("limpezas") ) {
+                		System.out.println("Nome do produto: " + nome[i]);
+                		System.out.println("Codigo do produto: " + cod[i]);
+                		System.out.println("Preco do produto: " + preco[i]);
+                		System.out.println("Categoria do produto: " + categoria[i]);
+                		
+                		break;
+                	}
+				}
+			}
 			case 3:
 				//cadastra um produto
 				do {
 					try {		
 						System.out.println("Informe o nome do produto");
-						nome[contador] = sc.next();
+						
+						name = sc.next();
 						System.out.println("Informe o codigo do produto");
-						cod[contador] = sc.nextInt();
+						codi = sc.nextInt();
+						System.out.println("Informe a categoria do produto");
+						category = sc.next();
 						System.out.println("Informe o preço do produto");
-						preco[contador] = sc.nextDouble();
+						precin = sc.nextDouble();
+						
+						
+						
+						for(int j = 0; j < 1000; j++) {
+							System.out.println(j);
+							if(codi == cod[j]) {
+								System.err.println("nome ou codigo ja existente, insira novamente");
+								cadastrarProd(codigo);
+							}
+							
+							
+							else {
+								nome[j] = name;
+								cod[j] = codi;
+								categoria[j] = category;
+								preco[j] = precin;	
+								break;
+							}
+						}
 						
 						System.out.println("Deseja inserir mais produtos ?\n1) Sim\n2) Não");
 						encerrar = sc.nextInt();
@@ -42,19 +81,20 @@ public class Projetomercadov2 {
 					}
 					
 				}while(true);	
-				//procura produto
+				//procura produto pelo codigo
 				case 4:{
 				     	boolean encontrado = false;
 
 		                System.out.print("Digite o código do produto: ");
 		                int codprd = sc.nextInt();
 		                
-
+		                
 		                for(int i = 0; i < cod.length; i++) {
 		                	if(cod[i] == codprd) {
 		                		System.out.println("Nome do produto: " + nome[i]);
 		                		System.out.println("Codigo do produto: " + cod[i]);
 		                		System.out.println("Preco do produto: " + preco[i]);
+		                		System.out.println("Categoria do produto: " + categoria[i]);
 		                		
 		                		encontrado = true;
 		                		break;
@@ -65,11 +105,22 @@ public class Projetomercadov2 {
 		                    System.out.println("Produto não encontrado.");
 		                }
 		                break;
+		                
 				}	
-			
+				//exibe todos os produtos para o usuario
+				case 5:{
+					if (contador == 0) {
+						System.err.println("Nao existe produtos cadastrados");
+					}else {
+						for(int i = 0; i < contador; i++) {
+							System.out.println("Nome do produto: " + nome[i]);
+	                		System.out.println("Codigo do produto: " + cod[i]);
+	                		System.out.println("Preco do produto: " + preco[i] + "\n");
+	                		System.out.println("Categoria do produto: " + categoria[i]);
+						}
+					}
+				}
 		}
-		
-		
 	}
 
     public static void validado(){
@@ -93,12 +144,10 @@ public class Projetomercadov2 {
             case 3:
             	cadastrarProd(input);
             	break;
-
         }
     }
     
     public static void conferirCAD() {
-
         /*
         Todos os cadastrados
          */
@@ -121,7 +170,7 @@ public class Projetomercadov2 {
                 {5, 5, 5, 5, 5},
                 {5, 5, 5, 5, 5}
         };
-
+       
         System.out.println("***CONFERIR CADASTRADOS***\nSelecione a categoria desejada\n1 - Limpeza\n2 - Frutas\n3 - Mercearia\n4 - Inserir Código\n5 - Exibir Todos os Produtos\n6 - Voltar");
         inputCAD = sc.nextInt();
 
@@ -129,8 +178,7 @@ public class Projetomercadov2 {
 
             case 1:
                 //limpeza
-                System.out.println(Arrays.toString(categorias[0]));
-                System.out.println(Arrays.toString(codProd[0]));
+            	cadastrarProd(1);
 
                 break;
 
@@ -150,6 +198,9 @@ public class Projetomercadov2 {
             case 4:
                 //PROCURAR PRODUTO POR CÓDIGO
             	cadastrarProd(4);
+            	
+            case 5:
+            	cadastrarProd(5);
            
             case 6:
 
@@ -175,7 +226,7 @@ public class Projetomercadov2 {
 
     public static void main(String[] args) {
 
-//LOGIN
+    	//LOGIN
         String user, senha;
 
         Scanner sc = new Scanner(System.in);
