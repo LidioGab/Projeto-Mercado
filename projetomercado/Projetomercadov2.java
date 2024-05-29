@@ -19,7 +19,7 @@ public class Projetomercadov2 {
 				do {
 					try {		
 						System.out.println("Informe o nome do produto");
-						nome[contador] = sc.nextLine();
+						nome[contador] = sc.next();
 						System.out.println("Informe o codigo do produto");
 						cod[contador] = sc.nextInt();
 						System.out.println("Informe o preço do produto");
