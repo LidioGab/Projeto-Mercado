@@ -59,7 +59,7 @@
 	                	
 	                	
 					}
-					if(encontrado) {
+					if(!encontrado) {
 						System.out.println("Produto nao encontrado");
 					}
 					
@@ -82,7 +82,7 @@
 	                	} 
 					}
 					
-					if(encontrado) {
+					if(!encontrado) {
 						System.out.println("Produto nao encontrado");
 					}
 					
@@ -94,27 +94,27 @@
 					//procura produto pelo codigo
 					case 4:{
 					     	boolean encontrado = false;
-					     	int i = 0;
 	
 			                System.out.print("Digite o código do produto: ");
 			                int codprd = sc.nextInt();
 			                
 			                
-			                do{
+			                for(int i = 0; i < cod.length; i++) {
 			                	if(cod[i] == codprd) {
 			                		System.out.println("Nome do produto: " + nome[i]);
 			                		System.out.println("Codigo do produto: " + cod[i]);
 			                		System.out.println("Preco do produto: " + preco[i]);
-			                		System.out.println("Categoria do produto: " + categoria[i]);
+			                		System.out.println("Categoria do produto: " + categoria[i] + "\n");
 			                		encontrado = true;
 			                		
 			                	}
-			                	i++;
-			                }while(!encontrado);
+			                }
+			                	
 	
-			                if (encontrado) {
+			                if (!encontrado) {
 			                    System.out.println("Produto não encontrado.");
 			                }
+			                conferirCAD();
 			                break;
 			                
 					}	
@@ -127,7 +127,7 @@
 								System.out.println("Nome do produto: " + nome[i]);
 		                		System.out.println("Codigo do produto: " + cod[i]);
 		                		System.out.println("Preco do produto: " + preco[i] );
-		                		System.out.println("Categoria do produto: " + categoria[i]);
+		                		System.out.println("Categoria do produto: " + categoria[i] + "\n");
 							}
 						}
 						
@@ -138,7 +138,7 @@
 						do {
 							try {		
 								System.out.println("Informe o nome do produto");
-								name = sc.next();
+								name = sc.nextLine();
 								codigo:
 			                        while (true) {
 			                            System.out.println("Digite o codigo:");
