@@ -1,0 +1,520 @@
+programa
+{
+    // Variáveis globais
+    boolean cadastrado = falso
+    inteiro contador = 0
+    cadeia nome[1000]
+    real preco[1000]
+    inteiro cod[1000]
+    cadeia categoria[1000]
+    inteiro qtdEstoque[1000]
+
+    funcao cadastrarProd(inteiro codigo)
+    {
+        inteiro encerrar
+
+        inteiro codi, estoque
+        cadeia name, category
+        real precin
+
+        escolha(codigo)
+        {
+            caso 1:
+                boolean encontrado = falso
+
+                para (inteiro i = 0; i < comprimento(cod); i++)
+                {
+                    se (categoria[i] != nulo e categoria[i] == "limpeza")
+                    {
+                        escreva("Nome do produto: ", nome[i], "\n")
+                        escreva("Código do produto: ", cod[i], "\n")
+                        escreva("Preço do produto: ", preco[i], "\n")
+                        escreva("Categoria do produto: ", categoria[i], "\n")
+                        escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+
+                        encontrado = verdadeiro
+                    }
+                }
+
+                se (nao encontrado)
+                {
+                    escreva("Produto não encontrado.\n")
+                }
+                conferirCAD()
+                pare
+
+            caso 2:
+                boolean encontrado = falso
+
+                para (inteiro i = 0; i < comprimento(cod); i++)
+                {
+                    se (categoria[i] != nulo e categoria[i] == "frutas")
+                    {
+                        escreva("Nome do produto: ", nome[i], "\n")
+                        escreva("Código do produto: ", cod[i], "\n")
+                        escreva("Preço do produto: ", preco[i], "\n")
+                        escreva("Categoria do produto: ", categoria[i], "\n")
+                        escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+
+                        encontrado = verdadeiro
+                    }
+                }
+
+                se (nao encontrado)
+                {
+                    escreva("Produto não encontrado.\n")
+                }
+
+                conferirCAD()
+                pare
+
+            caso 3:
+                boolean encontrado = falso
+
+                para (inteiro i = 0; i < comprimento(cod); i++)
+                {
+                    se (categoria[i] != nulo e categoria[i] == "mercearia")
+                    {
+                        escreva("Nome do produto: ", nome[i], "\n")
+                        escreva("Código do produto: ", cod[i], "\n")
+                        escreva("Preço do produto: ", preco[i], "\n")
+                        escreva("Categoria do produto: ", categoria[i], "\n")
+                        escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+
+                        encontrado = verdadeiro
+                    }
+                }
+
+                se (nao encontrado)
+                {
+                    escreva("Produto não encontrado.\n")
+                }
+
+                conferirCAD()
+                pare
+
+            caso 4:
+                boolean encontrado = falso
+
+                escreva("Digite o código do produto: ")
+                inteiro codprd = leiaInteiro()
+
+                para (inteiro i = 0; i < comprimento(cod); i++)
+                {
+                    se (cod[i] == codprd)
+                    {
+                        escreva("Nome do produto: ", nome[i], "\n")
+                        escreva("Código do produto: ", cod[i], "\n")
+                        escreva("Preço do produto: ", preco[i], "\n")
+                        escreva("Categoria do produto: ", categoria[i], "\n")
+                        escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+
+                        encontrado = verdadeiro
+                    }
+                }
+
+                se (nao encontrado)
+                {
+                    escreva("Produto não encontrado.\n")
+                }
+
+                conferirCAD()
+                pare
+
+            caso 5:
+                boolean encontrado = falso
+
+                se (nao encontrado)
+                {
+                    para (inteiro i = 0; i < comprimento(nome); i++)
+                    {
+                        se (nome[i] != nulo)
+                        {
+                            escreva("Nome do produto: ", nome[i], "\n")
+                            escreva("Código do produto: ", cod[i], "\n")
+                            escreva("Preço do produto: ", preco[i], "\n")
+                            escreva("Categoria do produto: ", categoria[i], "\n")
+                            escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+
+                            encontrado = verdadeiro
+                        }
+                    }
+                }
+
+                se (nao encontrado)
+                {
+                    escreva("Produto não encontrado.\n")
+                }
+
+                conferirCAD()
+                pare
+
+            caso 6:
+                faca
+                {
+                    tente
+                    {
+                        escreva("Informe o nome do produto: ")
+                        name = leia()
+
+                        faca
+                        {
+                            escreva("Digite o código: ")
+                            codi = leiaInteiro()
+                            escreva("O código é: ", codi, "?\n")
+                            escreva("1 - Sim\n2 - Não\n")
+                            inteiro cadINPUT = leiaInteiro()
+
+                            escolha(cadINPUT)
+                            {
+                                caso 1:
+                                    pare
+                                caso 2:
+                                    escreva("Digite o código novamente.\n")
+                                padrao:
+                                    escreva("Escolha 1 ou 2.\n")
+                            }
+                        }
+                        enquanto (verdadeiro)
+
+                        faca
+                        {
+                            escreva("Digite a categoria: ")
+                            category = leia()
+                            escreva("A categoria é: ", category, "?\n")
+                            escreva("1 - Sim\n2 - Não\n")
+                            inteiro cadINPUT = leiaInteiro()
+
+                            escolha(cadINPUT)
+                            {
+                                caso 1:
+                                    pare
+                                caso 2:
+                                    escreva("Digite a categoria novamente.\n")
+                                padrao:
+                                    escreva("Escolha 1 ou 2.\n")
+                            }
+                        }
+                        enquanto (verdadeiro)
+
+                        escreva("Informe o preço do produto: ")
+                        precin = leiaReal()
+
+                        escreva("Digite a quantidade inserida no estoque: ")
+                        estoque = leiaInteiro()
+
+                        boolean produtoExistente = falso
+
+                        para (inteiro j = 0; j < 1000; j++)
+                        {
+                            se (codi == cod[j])
+                            {
+                                produtoExistente = verdadeiro
+                                escreva("Código já existente, insira novamente.\n")
+                                pare
+                            }
+                        }
+
+                        se (nao produtoExistente)
+                        {
+                            para (inteiro i = 0; i < comprimento(nome); i++)
+                            {
+                                se (nome[i] == nulo)
+                                {
+                                    nome[i] = name
+                                    cod[i] = codi
+                                    categoria[i] = category
+                                    preco[i] = precin
+                                    qtdEstoque[i] = estoque
+
+                                    cadastrado = verdadeiro
+                                    pare
+                                }
+                            }
+                        }
+
+                        faca
+                        {
+                            escreva("Deseja inserir mais produtos?\n1) Sim\n2) Não\n")
+                            encerrar = leiaInteiro()
+
+                            se (encerrar == 1)
+                            {
+                                cadastrarProd(6)
+                            }
+                            senao se (encerrar == 2)
+                            {
+                                validado()
+                            }
+                            senao
+                            {
+                                escreva("Opção inválida, insira a opção novamente.\n")
+                            }
+                        }
+                        enquanto (verdadeiro)
+                    }
+                    pegue (ExcecaoDeEntrada e)
+                    {
+                        escreva("Código incorreto ou preço com ponto.\n")
+                    }
+                }
+                enquanto (verdadeiro)
+        }
+    }
+
+    funcao deletarProd()
+    {
+        inteiro codi, decisao
+        boolean encontrado = falso
+
+        escreva("Informe o código do produto que deseja deletar: ")
+        codi = leiaInteiro()
+
+        para (inteiro i = 0; i < comprimento(cod); i++)
+        {
+            se (cod[i] == codi)
+            {
+                escreva("Nome do produto: ", nome[i], "\n")
+                escreva("Código do produto: ", cod[i], "\n")
+                escreva("Preço do produto: ", preco[i], "\n")
+                escreva("Categoria do produto: ", categoria[i], "\n")
+                escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+                encontrado = verdadeiro
+
+                escreva("Você realmente deseja deletar este produto?\n1) Sim\n2) Não\n")
+                decisao = leiaInteiro()
+
+                se (decisao == 1)
+                {
+                    nome[i] = nulo
+                    cod[i] = 0
+                    preco[i] = 0
+                    categoria[i] = nulo
+                    qtdEstoque[i] = 0
+
+                    escreva("Produto deletado.\n")
+                }
+                senao
+                {
+                    validado()
+                }
+            }
+        }
+
+        se (nao encontrado)
+        {
+            escreva("Produto não encontrado.\n")
+        }
+
+        conferirCAD()
+    }
+
+    funcao alterarProd()
+    {
+        boolean encontrado = falso
+        inteiro posicao = 0, decisao, opcao
+        cadeia name
+
+        escreva("Digite o código do produto: ")
+        inteiro codprd = leiaInteiro()
+
+        para (inteiro i = 0; i < comprimento(cod); i++)
+        {
+            se (cod[i] == codprd)
+            {
+                escreva("Nome do produto: ", nome[i], "\n")
+                escreva("Código do produto: ", cod[i], "\n")
+                escreva("Preço do produto: ", preco[i], "\n")
+                escreva("Categoria do produto: ", categoria[i], "\n")
+                escreva("Quantidade em estoque: ", qtdEstoque[i], "\n\n")
+
+                encontrado = verdadeiro
+                posicao = i
+                pare
+            }
+        }
+
+        se (encontrado)
+        {
+            escreva("Você deseja alterar este produto?\n1) Sim\n2) Não\n3) Voltar\n")
+            decisao = leiaInteiro()
+
+            se (decisao == 1)
+            {
+                escreva("O que você deseja alterar?\n1) Nome\n2) Código\n3) Preço\n4) Categoria\n5) Quantidade\n6) Tudo\n")
+                opcao = leiaInteiro()
+                limpatela()
+
+                escolha(opcao)
+                {
+                    caso 1:
+                        escreva("Digite o novo nome: ")
+                        nome[posicao] = leia()
+                        pare
+                    caso 2:
+                        escreva("Digite o novo código: ")
+                        cod[posicao] = leiaInteiro()
+                        pare
+                    caso 3:
+                        escreva("Digite o novo preço: ")
+                        preco[posicao] = leiaReal()
+                        pare
+                    caso 4:
+                        escreva("Digite a nova categoria: ")
+                        categoria[posicao] = leia()
+                        pare
+                    caso 5:
+                        escreva("Digite a nova quantidade: ")
+                        qtdEstoque[posicao] = leiaInteiro()
+                        pare
+                    caso 6:
+                        escreva("Digite o novo nome: ")
+                        nome[posicao] = leia()
+
+                        escreva("Digite o novo código: ")
+                        cod[posicao] = leiaInteiro()
+
+                        escreva("Digite o novo preço: ")
+                        preco[posicao] = leiaReal()
+
+                        escreva("Digite a nova categoria: ")
+                        categoria[posicao] = leia()
+
+                        escreva("Digite a nova quantidade: ")
+                        qtdEstoque[posicao] = leiaInteiro()
+                        pare
+                    padrao:
+                        escreva("Opção inválida.\n")
+                        pare
+                }
+
+                escreva("Produto atualizado com sucesso!\n")
+            }
+            senao se (decisao == 2)
+            {
+                escreva("Nenhuma alteração realizada.\n")
+                validado()
+            }
+            senao se (decisao == 3)
+            {
+                escreva("Operação cancelada.\n")
+            }
+            senao
+            {
+                escreva("Opção inválida.\n")
+            }
+        }
+        senao
+        {
+            escreva("Produto não encontrado.\n")
+        }
+
+        conferirCAD()
+    }
+
+    funcao validado()
+    {
+        escreva("\n**BEM-VINDO**\n")
+        escreva("1) Conferir cadastrados\n2) Deletar Produtos\n3) Cadastrar Produto\n4) Alterar Produto\n5) Encerrar programa\n")
+        inteiro input = leiaInteiro()
+
+        escolha(input)
+        {
+            caso 1:
+                conferirCAD()
+                pare
+            caso 2:
+                deletarProd()
+                pare
+            caso 3:
+                cadastrarProd(6)
+                pare
+            caso 4:
+                alterarProd()
+                pare
+            caso 5:
+                pare
+        }
+    }
+
+    funcao conferirCAD()
+    {
+        escreva("***CONFERIR CADASTRADOS***\n")
+        escreva("Selecione a categoria desejada\n")
+        escreva("1 - Limpeza\n")
+        escreva("2 - Frutas\n")
+        escreva("3 - Mercearia\n")
+        escreva("4 - Inserir Código\n")
+        escreva("5 - Exibir Todos os Produtos\n")
+        escreva("6 - Voltar\n")
+        inteiro inputCAD = leiaInteiro()
+
+        escolha(inputCAD)
+        {
+            caso 1:
+                cadastrarProd(1)
+                pare
+            caso 2:
+                cadastrarProd(2)
+                pare
+            caso 3:
+                cadastrarProd(3)
+                pare
+            caso 4:
+                cadastrarProd(4)
+                pare
+            caso 5:
+                cadastrarProd(5)
+                pare
+            caso 6:
+                validado()
+                pare
+            padrao:
+                escreva("Opção inválida. Por favor, escolha uma opção válida.\n")
+        }
+
+        faca
+        {
+            escreva("\nPressione 1 para voltar, 0 para encerrar\n")
+            inteiro voltar = leiaInteiro()
+        }
+        enquanto (voltar != 1 e voltar != 0)
+
+        se (voltar == 1)
+        {
+            conferirCAD()
+        }
+        senao
+        {
+            pare
+        }
+    }
+
+    funcao inicio()
+    {
+        cadeia user, senha
+
+        escreva("***SISTEMA DE SUPERMERCADO***\n")
+
+        faca
+        {
+            escreva("Usuário: ")
+            user = leia()
+
+            escreva("Senha: ")
+            senha = leia()
+
+            se (user != "admin" ou senha != "123")
+            {
+                escreva("Usuário ou senha incorretos.\n")
+            }
+            senao
+            {
+                pare
+            }
+        }
+        enquanto (verdadeiro)
+
+        validado()
+    }
+}
